@@ -5,16 +5,16 @@ set -e
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 
-if [ -z "$VITASDK" ]; then
-  echo '$VITASDK is not set'
+if [ -z "$DOLCESDK" ]; then
+  echo '$DOLCESDK is not set'
   exit 1
 fi
 
-. "$DIR/include/install-vitasdk.sh"
+. "$DIR/include/install-dolcesdk.sh"
 . "$DIR/include/install-packages.sh"
 
-echo "==> Updating vitasdk"
-install_vitasdk $VITASDK
+echo "==> Updating DolceSDK"
+install_dolcesdk $DOLCESDK
 
 echo "==> Updating packages"
 install_packages

@@ -1,8 +1,8 @@
-Vitadev Package manager
+Dolcedev Package manager
 =============
 
-VDPM is a project which aims on getting common libraries building for the PS Vita using the
-[vitasdk toolchain](https://github.com/vitasdk). It was based off the original idea of xerpi's
+DDPM is a project which aims on getting common libraries building for the PS Vita using the
+[DolceSDK toolchain](https://github.com/DolceSDK). It was based off the original idea of xerpi's
 vita\_portlibs.
 
 
@@ -21,17 +21,17 @@ First install cmake, you can get this from [Homebrew](http://brew.sh) on Mac (`b
 and from your distro's package manager on Linux (on ubuntu: `sudo apt-get install cmake`).
 
 ```shell
-git clone https://github.com/vitasdk/vdpm
-cd vdpm
-./bootstrap-vitasdk.sh
-export VITASDK=/usr/local/vitasdk # define $VITASDK if you haven't already
-export PATH=$VITASDK/bin:$PATH # add vitasdk tool to $PATH if you haven't already
+git clone https://github.com/DolceSDK/ddpm
+cd ddpm
+./bootstrap-dolcesdk.sh
+export DOLCESDK=/usr/local/dolcesdk # define $DOLCESDK if you haven't already
+export PATH=$DOLCESDK/bin:$PATH # add DolceSDK tool to $PATH if you haven't already
 ./install-all.sh
 ```
 
 ### Windows (Bash on Ubuntu on Windows)
 
-Just follow the steps for Linux above. This is the recommended way to set up vdpm on Windows, however, it only works for Windows 10.
+Just follow the steps for Linux above. This is the recommended way to set up ddpm on Windows, however, it only works for Windows 10.
 
 Read here for information on how to install Bash on Ubuntu on Windows: https://msdn.microsoft.com/en-us/commandline/wsl/install_guide
 
@@ -42,18 +42,18 @@ For older versions of Windows, you should use msys2. Get it from here: https://m
 ```shell
 # Read through https://msys2.github.io/ and make sure your msys2 is up-to-date first
 pacman -S make git wget p7zip tar cmake
-git clone https://github.com/vitasdk/vdpm
-cd vdpm
-./bootstrap-vitasdk.sh
-export VITASDK=/usr/local/vitasdk # define $VITASDK if you haven't already
-export PATH=$VITASDK/bin:$PATH # add vitasdk tool to $PATH if you haven't already
+git clone https://github.com/DolceSDK/ddpm
+cd ddpm
+./bootstrap-dolcesdk.sh
+export DOLCESDK=/usr/local/dolcesdk # define $DOLCESDK if you haven't already
+export PATH=$DOLCESDK/bin:$PATH # add DolceSDK tool to $PATH if you haven't already
 ./install-all.sh
 ```
 
 Update/reinstall
 ----------------
 
-Run `./vitasdk-update` which will replace files in `$VITASDK` with the latest nightly and libraries.
+Run `./dolcesdk-update` which will replace files in `$DOLCESDK` with the latest nightly and libraries.
 
 
 Known Issues

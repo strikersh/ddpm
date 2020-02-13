@@ -1,7 +1,6 @@
 #!/bin/bash
 #
-# vitasdk package manager
-# (aka a 5 liner around tar and curl)
+# DolceSDK package manager
 #
 
 set -e
@@ -16,20 +15,20 @@ error() {
 install_pkg() {
   echo "Installing $1..."
   if [ -f $1 ]; then
-    tar -C $VITASDK/arm-vita-eabi -Jxvf $1
+    tar -C $DOLCESDK/arm-dolce-eabi -Jxvf $1
   else
-    curl http://dl.vitasdk.org/$1.tar.xz | tar -C $VITASDK/arm-vita-eabi -Jxvf -
+    curl http://dl.vitasdk.org/$1.tar.xz | tar -C $DOLCESDK/arm-dolce-eabi -Jxvf -
   fi
   echo "success"
 }
 
 if [ "$#" -ne 1 ]; then
-    echo "Usage: ./vdpm package-name"
+    echo "Usage: ./ddpm package-name"
     exit 1
 fi
 
-if [ -z "$VITASDK" ]; then
-  echo '$VITASDK is not set'
+if [ -z "$DOLCESDK" ]; then
+  echo '$DOLCESDK is not set'
   exit 1
 fi
 
