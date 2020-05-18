@@ -17,7 +17,7 @@ install_pkg() {
   if [ -f $1 ]; then
     tar -C $DOLCESDK/arm-dolce-eabi -Jxvf $1
   else
-    curl http://dl.vitasdk.org/$1.tar.xz | tar -C $DOLCESDK/arm-dolce-eabi -Jxvf -
+    curl https://bin.shotatoshounenwachigau.moe/dolcesdk/packages/$1.tar.xz | tar -C $DOLCESDK/arm-dolce-eabi -Jxvf -
   fi
   echo "success"
 }
