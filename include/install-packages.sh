@@ -21,27 +21,30 @@ install_packages() {
 	b harfbuzz
 	b fftw
 	b libvita2d
-	b libvita2d_ext
+	b libvita2d_sys
 	b libmad
 	b libogg
 	b libvorbis
+	b flac
 	b libtremor
+	b libmikmod
 	b libftpvita
 	b henkaku
 	b taihen
 	b libk
-	b libdebugnet
 	b onigmo
 	b sdl
 	b sdl_image
 	b sdl_mixer
 	b sdl_net
 	b sdl_ttf
+	b SDL_gfx
 	b sdl2
 	b sdl2_image
 	b sdl2_mixer
 	b sdl2_net
 	b sdl2_ttf
+	b SDL2_gfx
 	b openssl
 	b curl
 	b curlpp
@@ -52,22 +55,25 @@ install_packages() {
 	b libxml2
 	b speexdsp
 	b pixman
-	b TinyGL
-	b kuio
 	b taipool
 	b mpg123
+	b libmpeg2
 	b soloud
 	b quirc
-	b Box2D
 	b libsndfile
 	b xz
 	b libarchive
-	b bullet
-	b libimagequant
 	b libmodplug
-	b libmikmod
-	b flac
-	b SDL2_gfx
-	b SDL_gfx
 	b libconfig
+	b libsodium
+	b libmathneon
+	b vitaGL
+	b imgui
+	b libbaremetal
+	b minizip
+	b jsoncpp
+	b lame
+	b ffmpeg
+	b fnblit
+	b libtheora
 }
