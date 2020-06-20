@@ -5,12 +5,12 @@ get_download_link () {
 }
 
 install_dolcesdk () {
-  INSTALLDIR=$1
+  INSTALLDIR="$1"
 
   case "$(uname -s)" in
      Darwin*)
-      mkdir -p $INSTALLDIR
-      wget -O- "$(get_download_link apple)" | tar xj -C $INSTALLDIR --strip-components=1
+      mkdir -p "$INSTALLDIR"
+      wget -O- "$(get_download_link apple)" | tar xj -C "$INSTALLDIR" --strip-components=1
      ;;
 
      Linux*)
@@ -19,16 +19,16 @@ install_dolcesdk () {
       fi
       command -v curl || { echo "curl missing (install using: apt install curl)" ; exit 1; }
       if [ ! -d "$INSTALLDIR" ]; then
-        sudo mkdir -p $INSTALLDIR
-        sudo chown $USER:$(id -gn $USER) $INSTALLDIR
+        sudo mkdir -p "$INSTALLDIR"
+        sudo chown $USER:$(id -gn $USER) "$INSTALLDIR"
       fi
-      wget -O- "$(get_download_link linux)" | tar xj -C $INSTALLDIR --strip-components=1
+      wget -O- "$(get_download_link linux)" | tar xj -C "$INSTALLDIR" --strip-components=1
      ;;
 
      MSYS*|MINGW64*)
       UNIX=false
-      mkdir -p $INSTALLDIR
-      wget -O- "$(get_download_link w64)" | tar xj -C $INSTALLDIR --strip-components=1
+      mkdir -p "$INSTALLDIR"
+      wget -O- "$(get_download_link w64)" | tar xj -C "$INSTALLDIR" --strip-components=1
      ;;
 
      CYGWIN*|MINGW32*)

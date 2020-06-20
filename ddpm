@@ -15,9 +15,9 @@ error() {
 install_pkg() {
   echo "Installing $1..."
   if [ -f $1 ]; then
-    tar -C $DOLCESDK/arm-dolce-eabi -Jxvf $1
+    tar -C "$DOLCESDK/arm-dolce-eabi" -Jxvf "$1"
   else
-    curl https://bin.shotatoshounenwachigau.moe/dolcesdk/packages/$1.tar.xz | tar -C $DOLCESDK/arm-dolce-eabi -Jxvf -
+    curl "https://bin.shotatoshounenwachigau.moe/dolcesdk/packages/$1.tar.xz" | tar -C "$DOLCESDK/arm-dolce-eabi" -Jxvf -
   fi
   echo "success"
 }
@@ -33,4 +33,4 @@ if [ -z "$DOLCESDK" ]; then
 fi
 
 trap 'error' ERR
-install_pkg $1
+install_pkg "$1"

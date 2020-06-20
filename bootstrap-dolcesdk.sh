@@ -13,7 +13,7 @@ if [ -d "$INSTALLDIR" ]; then
 fi
 
 echo "==> Installing DolceSDK to $INSTALLDIR"
-install_dolcesdk $INSTALLDIR
+install_dolcesdk "$INSTALLDIR"
 
 echo "Please add the following to the bottom of your .bashrc:"
 printf "\033[0;36m""export DOLCESDK=${INSTALLDIR}""\033[0m\n"
