@@ -76,4 +76,6 @@ install_packages() {
 	b ffmpeg
 	b fnblit
 	b libtheora
+	b libvitaSAS
+	b libShellAudio
 }
