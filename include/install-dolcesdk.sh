@@ -14,9 +14,6 @@ install_dolcesdk () {
      ;;
 
      Linux*)
-      if [ -n "${TRAVIS}" ]; then
-          sudo apt-get install libc6-i386 lib32stdc++6 lib32gcc1 patch
-      fi
       if [ ! -d "$INSTALLDIR" ]; then
         sudo mkdir -p "$INSTALLDIR"
         sudo chown $USER:$(id -gn $USER) "$INSTALLDIR"
