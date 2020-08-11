@@ -31,7 +31,6 @@ install_packages() {
 	b libftpvita
 	b henkaku
 	b taihen
-	b libk
 	b onigmo
 	b sdl
 	b sdl_image
@@ -78,4 +77,5 @@ install_packages() {
 	b libtheora
 	b libvitaSAS
 	b libShellAudio
+	b psp2dbg
 }
