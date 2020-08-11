@@ -1,11 +1,9 @@
 Dolcedev Package manager
-=============
+========================
 
 DDPM is a project which aims on getting common libraries building for the PS Vita using the
 [DolceSDK toolchain](https://github.com/DolceSDK). It was based off the original idea of xerpi's
 vita\_portlibs.
-
-
 
 
 Usage
@@ -17,7 +15,7 @@ Getting started
 **You should make sure you have the `patch` command installed.**
 
 ### Mac & Linux
-First install cmake, you can get this from [Homebrew](http://brew.sh) on Mac (`brew install cmake`), 
+First install cmake, you can get this from [Homebrew](http://brew.sh) on Mac (`brew install cmake`),
 and from your distro's package manager on Linux (on ubuntu: `sudo apt-get install cmake`).
 
 ```shell
@@ -41,7 +39,7 @@ For older versions of Windows, you should use msys2. Get it from here: https://m
 
 ```shell
 # Read through https://msys2.github.io/ and make sure your msys2 is up-to-date first
-pacman -S make git wget p7zip tar cmake
+pacman -S make git curl p7zip tar cmake
 git clone https://github.com/DolceSDK/ddpm
 cd ddpm
 ./bootstrap-dolcesdk.sh
@@ -54,11 +52,6 @@ Update/reinstall
 ----------------
 
 Run `./dolcesdk-update` which will replace files in `$DOLCESDK` with the latest nightly and libraries.
-
-
-Known Issues
-------------
-* The scripts that are used to install the required packages make use of [Wget](https://en.wikipedia.org/wiki/Wget) to download the required files. Some of the required files are downloaded from [SourceForge](https://sourceforge.net/) which redirects you to one of their mirror sites automatically. Wget handles this by default, however, if you (or your System Administrator) have a [Wget Startup File](https://www.gnu.org/software/wget/manual/html_node/Startup-File.html) in use it's possible to have settings in that file which will cause the downloads to fail, especially when using redirection from hosts such as SourceForge. If the installation isn't working for you and you notice that it's giving your errors about missing files try temporarily removing/renaming the Wget Startup File to see if that fixes the issue.
 
 
 Contributing
