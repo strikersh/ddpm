@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 get_download_link () {
   curl -sL https://raw.githubusercontent.com/DolceSDK/headers/master/.travis.d/last_built_toolchain.py | python3 - $@
@@ -14,10 +14,7 @@ install_dolcesdk () {
      ;;
 
      Linux*)
-      if [ ! -d "$INSTALLDIR" ]; then
-        sudo mkdir -p "$INSTALLDIR"
-        sudo chown $USER:$(id -gn $USER) "$INSTALLDIR"
-      fi
+      mkdir -p "$INSTALLDIR"
       curl -L "$(get_download_link linux)" | tar xj -C "$INSTALLDIR" --strip-components=1
      ;;
 

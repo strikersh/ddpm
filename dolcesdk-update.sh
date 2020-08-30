@@ -1,9 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
 
 if [ -z "$DOLCESDK" ]; then
   echo '$DOLCESDK is not set'
@@ -11,12 +10,8 @@ if [ -z "$DOLCESDK" ]; then
 fi
 
 . "$DIR/include/install-dolcesdk.sh"
-. "$DIR/include/install-packages.sh"
 
 echo "==> Updating DolceSDK"
-install_dolcesdk $DOLCESDK
-
-echo "==> Updating packages"
-install_packages
+install_dolcesdk "$DOLCESDK"
 
 echo "All done!"
