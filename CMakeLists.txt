@@ -2,23 +2,17 @@ cmake_minimum_required(VERSION 3.0)
 
 project(ddpm LANGUAGES NONE)
 
-install(PROGRAMS ddpm.sh
+install(PROGRAMS ddpm.py
 	RENAME ddpm
 	DESTINATION bin
 )
 
-install(PROGRAMS dolcesdk-update.sh
+install(PROGRAMS dolcesdk-update.py
 	RENAME dolcesdk-update
 	DESTINATION bin
 )
 
-install(PROGRAMS dolcesdk-update-packages.sh
+install(PROGRAMS dolcesdk-update-packages.py
 	RENAME dolcesdk-update-packages
 	DESTINATION bin
-)
-
-install(PROGRAMS
-	include/install-dolcesdk.sh
-	include/install-packages.sh
-	DESTINATION bin/include
 )
