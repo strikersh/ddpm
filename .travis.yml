@@ -1,0 +1,24 @@
+language: python
+os: linux
+dist: bionic
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb https://apt.kitware.com/ubuntu/ bionic main'
+        key_url: 'https://apt.kitware.com/keys/kitware-archive-latest.asc'
+    packages:
+      - cmake
+env:
+  - DOLCESDK="$HOME/dolcesdk"
+    PATH="$DOLCESDK/bin:$PATH"
+before_script:
+  - sudo rm -rf /usr/local/cmake-* # workaround to remove default cmake that has priority in PATH
+script:
+  # test scripts
+  - python3 dolcesdk-update.py
+  - python3 dolcesdk-update-packages.py
+  - python3 ddpm.py zlib
+  - python3 ddpm.py zlib bzip2
+  # test installation
+  - cmake . -D CMAKE_INSTALL_PREFIX="$DOLCESDK"
+  - make install
