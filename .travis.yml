@@ -14,9 +14,13 @@ env:
 before_script:
   - sudo rm -rf /usr/local/cmake-* # workaround to remove default cmake that has priority in PATH
 script:
-  # test scripts
+  # test installation
   - python3 dolcesdk-update.py
   - python3 dolcesdk-update-packages.py
+  # test installation overwrite
+  - python3 dolcesdk-update.py
+  - python3 dolcesdk-update-packages.py
+  # test ddpm
   - python3 ddpm.py zlib
   - python3 ddpm.py zlib bzip2
   # test installation

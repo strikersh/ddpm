@@ -85,6 +85,10 @@ for rel in releases:
 				with tarfile.open(fileobj=res, mode='r|*') as tar:
 					for f in tar:
 						f.name = f.name[len('dolcesdk/'):]
+						# TarFile.extract cannot overwrite symlink so remove it first
+						extract_path = DOLCESDK / f.name
+						if extract_path.is_symlink():
+							extract_path.unlink()
 						tar.extract(f, path=DOLCESDK)
 						print(f'Installed {DOLCESDK / f.name}')
 			sys.exit(0)
