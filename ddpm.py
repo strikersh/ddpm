@@ -64,6 +64,9 @@ for pkg in args.package:
 	else:
 		network_package.append(pkg)
 
+if network_package == []:
+	sys.exit(0)
+
 # fetch recent releases
 
 with request.urlopen('https://api.github.com/repos/DolceSDK/packages/releases') as res:
