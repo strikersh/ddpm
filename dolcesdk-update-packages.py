@@ -23,15 +23,22 @@ if sys.version_info < (3, 6):
 	sys.exit('Python must be at least version 3.6')
 
 import argparse
+import base64 as b64
 import json
 import os
 import pathlib
 import tarfile
 import urllib.request as request
 
-# setup and parse command line arguments (no arguments)
+# setup and parse command line arguments
 
-parser = argparse.ArgumentParser(description='Install all packages from DolceSDK packages repository.').parse_args()
+parser = argparse.ArgumentParser(description='Install all packages from DolceSDK packages repository.')
+
+parser.add_argument(
+	'--auth',
+	help='username:token for accessing GitHub API')
+
+args = parser.parse_args()
 
 # check DOLCESDK is set
 
@@ -43,9 +50,18 @@ except KeyError as e:
 INSTALL_PREFIX = DOLCESDK / 'arm-dolce-eabi'
 print(f'Installing to {INSTALL_PREFIX}')
 
+# setup request
+
+req = request.Request('https://api.github.com/repos/DolceSDK/packages/releases')
+
+if args.auth:
+	username, _ = args.auth.split(':')
+	print(f'Authenticating as {username}')
+	req.add_header('Authorization', f'Basic {b64.b64encode(args.auth.encode("utf-8")).decode("utf-8")}')
+
 # fetch recent releases
 
-with request.urlopen('https://api.github.com/repos/DolceSDK/packages/releases') as res:
+with request.urlopen(req) as res:
 	releases = json.loads(res.read().decode('utf-8'))
 
 # install package

@@ -23,6 +23,7 @@ if sys.version_info < (3, 6):
 	sys.exit('Python must be at least version 3.6')
 
 import argparse
+import base64 as b64
 import json
 import os
 import pathlib
@@ -38,6 +39,10 @@ parser.add_argument(
 	metavar='PACKAGE',
 	nargs='+',
 	help='Package name or path to local package.')
+
+parser.add_argument(
+	'--auth',
+	help='username:token for accessing GitHub API')
 
 args = parser.parse_args()
 
@@ -67,9 +72,18 @@ for pkg in args.package:
 if network_package == []:
 	sys.exit(0)
 
+# setup request
+
+req = request.Request('https://api.github.com/repos/DolceSDK/packages/releases')
+
+if args.auth:
+	username, _ = args.auth.split(':')
+	print(f'Authenticating as {username}')
+	req.add_header('Authorization', f'Basic {b64.b64encode(args.auth.encode("utf-8")).decode("utf-8")}')
+
 # fetch recent releases
 
-with request.urlopen('https://api.github.com/repos/DolceSDK/packages/releases') as res:
+with request.urlopen(req) as res:
 	releases = json.loads(res.read().decode('utf-8'))
 
 # find and install package
