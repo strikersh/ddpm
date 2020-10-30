@@ -44,7 +44,7 @@ args = parser.parse_args()
 # check DOLCESDK is set
 
 try:
-	DOLCESDK = pathlib.Path(os.environ['DOLCESDK'])
+	DOLCESDK = pathlib.Path(os.environ['DOLCESDK']).expanduser()
 except KeyError as e:
 	sys.exit('Environmental variable DOLCESDK is not set')
 
